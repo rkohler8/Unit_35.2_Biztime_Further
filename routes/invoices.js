@@ -17,7 +17,7 @@ router.get("/", async function(req, res, next) {
   } catch(err) {
     return next(err);
   }
-})
+});
 
 
 // GET /invoices/[id]
@@ -67,7 +67,7 @@ router.get("/:id", async function(req, res, next) {
   } catch(err) {
     return next(err);
   }
-})
+});
 
 
 // POST /invoices
@@ -91,7 +91,7 @@ router.post("/", async function(req, res, next) {
   } catch(err) {
     return next(err);
   }
-})
+});
 
 
 // PUT /invoices/[id]
@@ -140,7 +140,7 @@ router.put("/:id", async function(req, res, next) {
   } catch(err) {
     return next(err);
   }
-})
+});
 
 
 // DELETE /invoices/[id]
@@ -170,7 +170,7 @@ router.delete("/:id", async function(req, res, next) {
   } catch(err) {
     return next(err);
   }
-})
+});
 
 
 // GET /companies/[code]

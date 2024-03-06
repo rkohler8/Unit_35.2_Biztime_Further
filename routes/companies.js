@@ -18,7 +18,7 @@ router.get("/", async function(req, res, next) {
   } catch(err) {
     return next(err);
   }
-})
+});
 
 
 // GET /companies/[code]
@@ -29,7 +29,7 @@ router.get("/:code", async function(req, res, next) {
   try {
     let code = req.params.code;
 
-    const companyResult = await db.query(`SELECT code, name, description FROM companies WHERE code = $1`, [code]);
+    const companyResult = await db.query(`SELECT code, name, description, industry_code FROM companies WHERE code = $1`, [code]);
     const invoiceResult = await db.query(`SELECT if FROM invoices WHERE comp_code = $1`, [code]);
 
     if (companyResult.rows.length === 0) {
@@ -43,7 +43,7 @@ router.get("/:code", async function(req, res, next) {
   } catch(err) {
     return next(err);
   }
-})
+});
 
 
 
@@ -66,7 +66,7 @@ router.post("/", async function(req, res, next) {
   } catch(err) {
     return next(err);
   }
-})
+});
 
 
 // PUT /companies/[code]
@@ -93,7 +93,7 @@ router .put("/:code", async function(req, res, next) {
   } catch(err) {
     return next(err);
   }
-})
+});
 
 
 // DELETE /companies/[code]
@@ -117,7 +117,7 @@ router.delete("/:code", async function(req, res, next) {
   } catch(err) {
     return next(err);
   }
-})
+});
 
 
 module.exports = router;
